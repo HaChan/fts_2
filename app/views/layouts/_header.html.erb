@@ -1,19 +1,25 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
+    	<% if signed_in_admin? %>
       <%= link_to "Framgia Test", root_path, id: "logo" %>
+      <% else %>
+      <%= link_to "Framgia Test", root_path, id: "logo" %>
+      <% end %>
       <nav>
         <ul class="nav pull-right">
+          <% if !signed_in_admin? %>
           <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Users", '#'%></li>
+          <li><%= link_to "Exam", '#' %></li>
           <% if signed_in? %>
-            <li><%= link_to "Users", users_path %></li>
+            <li><%= link_to "Users", '#' %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to "Profile", current_user %></li>
-                <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                 <li class="divider"></li>
                 <li>
                   <%= link_to "Sign out", signout_path, method: "delete" %>
@@ -23,6 +29,21 @@
           <% else %>
             <li><%= link_to "Sign in", signin_path %></li>
           <% end %>
+        <% else %>
+          <li><%= link_to "List Users", '#' %></li>
+          <li><%= link_to "List Exams", '#' %></li>
+          <li><%= link_to "List Request Buy", '#' %></li>
+          <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Account <%=@current_admin.name%><b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <%= link_to "Sign out", admin_signout_path, method: "delete" %>
+                </li>
+              </ul>
+            </li>
+        <% end%>
         </ul>
       </nav>
     </div>

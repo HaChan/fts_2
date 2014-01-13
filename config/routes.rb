@@ -4,7 +4,14 @@ Fts2::Application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/signin',  to: 'sessions#new',         via: 'get'
   resources :users
+  
+
   namespace :admin do
+
+    resources :sessions, only: [:new, :create, :destroy]
+    match 'signout', to: 'sessions#destroy',     via: 'delete'
+    match 'signin',  to: 'sessions#new',         via: 'get'
+  end
 
   end
   # The priority is based upon order of creation: first created -> highest priority.
@@ -61,4 +68,3 @@ Fts2::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
