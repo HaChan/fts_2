@@ -1,6 +1,9 @@
 Fts2::Application.routes.draw do
   root to:  'static_pages#index'
-
+  resources :sessions, only: [:new, :create, :destroy]
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  resources :users
   namespace :admin do
 
   end
