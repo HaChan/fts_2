@@ -5,7 +5,6 @@ class CreateAnswers < ActiveRecord::Migration
       t.string :answer_content
       t.integer :status
       t.string :true_content
-      t.integer :type_answers_id
       t.timestamps
     end
   end

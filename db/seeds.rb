@@ -25,20 +25,20 @@ Examination.create(subject_id: 2, duration: 20, number_question: 30, datetime_ex
 Subject.create(subject_name: "Mysql")
 Subject.create(subject_name: "Git")
 
-Question.create(subject_id: 1, subject_content: "Which of the following SQL statements 
-selects the total number of orders from the Sales table?")
+Question.create(subject_id: 1, subject_content: "Which of the following SQL statements
+selects the total number of orders from the Sales table?", type_question_id: 1)
 
 Question.create(subject_id: 1, subject_content: "How to push git")
 
 ExaminationQuestion.create(examination_id: 1, question_id: 1)
 ExaminationQuestion.create(examination_id: 2, question_id: 2)
 
-TypeAnswer.create(answer_id: 1, answer_type: "Multi")
-TypeAnswer.create(answer_id: 2, answer_type: "Single")
-TypeAnswer.create(answer_id: 2, answer_type: "Text")
+TypeQuestion.create(question_type: "Multi")
+TypeQuestion.create(question_type: "Single")
+TypeQuestion.create(question_type: "Text")
 
-Answer.create(question_id: 1, answer_content: "abc", status: 1, type_answers_id: 1)
-Answer.create(question_id: 2, answer_content: "abcd", status: 0, type_answers_id: 1)
+Answer.create(question_id: 1, answer_content: "abc", status: 1)
+Answer.create(question_id: 2, answer_content: "abcd", status: 0)
 
 
 
@@ -47,6 +47,3 @@ Testing.create(examination_id: 2, user_id: 2, result: 0)
 
 TestingAnswer.create(answer_id: 1, testing_id: 1)
 TestingAnswer.create(answer_id: 1, testing_id: 2)
-
-
-

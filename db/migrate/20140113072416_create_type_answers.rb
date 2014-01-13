@@ -1,8 +1,7 @@
 class CreateTypeAnswers < ActiveRecord::Migration
   def change
-    create_table :type_answers do |t|
-      t.integer :answer_id
-      t.string :answer_type
+    create_table :type_questions do |t|
+      t.string :question_type
       t.timestamps
     end
   end

@@ -1,3 +1,8 @@
 class Question < ActiveRecord::Base
-	has_many :answers
+  belongs_to :subject
+  has_many :answers
+  accepts_nested_attributes_for :answers,
+  reject_if: lambda { |params| params[:answer_content].blank? }, allow_destroy: true
+
+  validates :subject_content, presence: true
 end
