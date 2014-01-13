@@ -4,8 +4,8 @@ class CreateExaminations < ActiveRecord::Migration
       t.integer :subject_id
       t.integer :duration
       t.integer :number_question
-      t.tring :datetime_exam
-      t.integer :type
+      t.datetime :datetime_exam
+      t.integer :exam_type
       t.timestamps
     end
   end
