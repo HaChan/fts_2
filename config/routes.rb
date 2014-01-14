@@ -4,10 +4,8 @@ Fts2::Application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/signin',  to: 'sessions#new',         via: 'get'
   resources :users
-  
-
   namespace :admin do
-
+    resources :users
     resources :sessions, only: [:new, :create, :destroy]
     match 'signout', to: 'sessions#destroy',     via: 'delete'
     match 'signin',  to: 'sessions#new',         via: 'get'

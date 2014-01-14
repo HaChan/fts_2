@@ -1,0 +1,23 @@
+<% provide(:title, "Show all users") %>
+<h2>Show all users</h2>
+
+<table class="table">
+	<thear>
+		<tr>
+			<th>STT</th>
+			<th>Email</th>
+			<th>Username</th>
+			<th>Create date</th>
+			<th>Reset password</th>
+			<th>Delete</th>
+		</tr>
+  </thear>
+	<tbody>
+		<% if @users.any? %>
+		<%= render @users %>
+		<% end %>
+	</tbody>
+	<tfoot>
+    <%= will_paginate %>
+	</tfoot>
+</table>

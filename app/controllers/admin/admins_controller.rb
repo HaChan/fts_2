@@ -1,26 +1,27 @@
 class AdminsController < ApplicationController
-        def index
-        end
-        
-        def show
-        end
+  def index
+  end
 
-        def new
-        end
+  def show
+  end
 
-        def create
-        end
+  def new
+  end
 
-        def edit
-        end
+  def create
+  end
 
-        def update
-        end
-        
-        def destroy
-        end
+  def edit
+  end
 
-        private
-         def user_params
-         end
+  def update
+  end
+
+  def destroy
+  end
+
+  private
+
+  def user_params
+  end
 end
