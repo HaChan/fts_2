@@ -30,14 +30,29 @@ class Admin::QuestionsController < ApplicationController
   end
 
   def edit
+    @subjects = Subject.all
+    @question = Question.find params[:id]
+    @type_questions = TypeQuestion.all
   end
 
   def update
+		@question = Question.find params[:id]
+    if @question.update_attributes! question_params_with_id
+      flash[:success] = "Question updated"
+      redirect_to :back
+    else
+      render 'edit'
+    end
   end
 
   private
     def question_params
 	    params.require(:question).permit :subject_content, :subject_id,
 	      :type_question_id, answers_attributes: [:answer_content, :status]
+	  end
+
+	  def question_params_with_id
+	    params.require(:question).permit :subject_content, :subject_id,
+	      :type_question_id, answers_attributes: [:id, :answer_content, :status]
 	  end
 end
