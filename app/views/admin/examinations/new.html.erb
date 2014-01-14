@@ -1,0 +1,14 @@
+<% provide(:title, 'Create a new examination') %>
+<h1>Create a new examination</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for [:admin, @examination] do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      
+			<%= render 'fields', f: f%>
+
+      <%= f.submit "Create examination", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
