@@ -30,9 +30,9 @@
             <li><%= link_to "Sign in", signin_path %></li>
           <% end %>
         <% else %>
-          <li><%= link_to "List Users", '#' %></li>
+          <li><%= link_to "List Users", admin_users_path %></li>
           <li><%= link_to "List Exams", '#' %></li>
-          <li><%= link_to "List Request Buy", '#' %></li>
+          <li><%= link_to "List Subject", '#' %></li>
           <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <%=@current_admin.name%><b class="caret"></b>
