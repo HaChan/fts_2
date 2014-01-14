@@ -9,6 +9,9 @@
 			<%= render 'fields', f: f%>
 
       <%= f.submit "Edit examination", class: "btn btn-large btn-primary" %>
+      <%= link_to "Delete", admin_examination_path(@examination), 
+      method: :delete, data: { confirm: "You sure?" },
+                      class: "btn btn-large btn-primary"%>
   </div>
 <% end %>
 </div>

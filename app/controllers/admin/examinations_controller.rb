@@ -36,13 +36,24 @@ class Admin::ExaminationsController < ApplicationController
 	end
 
 	def destroy
-		
+		@examination = Examination.find params[:id]
+		if @examination.nil?
+			flash[:error] = "Examination is empty. You can't remove."
+      redirect_to admin_examinations_path
+    end
+    if !@examination.using?
+    	@examination.destroy
+      flash[:success] = "Examination deleted."
+    else
+      flash[:error] = "Examination is using. You can't remove."
+    end
+    redirect_to admin_examinations_path
 	end
 
 	private
 
 	    def examination_params
-	      params.require(:examination).permit(:subject_id, :number_question, 
-	      	:duration, :datetime_exam, :exam_type)
+	      params.require(:examination).permit :subject_id, :number_question, 
+	      	:duration, :datetime_exam, :exam_type 
 	    end
 end
