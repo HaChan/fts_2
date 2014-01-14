@@ -1,6 +1,7 @@
 <% provide(:title, "Show all users") %>
 <h2>Show all users</h2>
-
+<h3> <%= link_to "New user", new_admin_user_path,
+class: "btn btn-medium btn-primary" %> </h3>
 <table class="table">
 	<thear>
 		<tr>
@@ -11,13 +12,12 @@
 			<th>Reset password</th>
 			<th>Delete</th>
 		</tr>
-  </thear>
 	<tbody>
 		<% if @users.any? %>
 		<%= render @users %>
 		<% end %>
 	</tbody>
 	<tfoot>
-    <%= will_paginate %>
+		<%= will_paginate %>
 	</tfoot>
 </table>
