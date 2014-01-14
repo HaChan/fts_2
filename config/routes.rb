@@ -10,6 +10,8 @@ Fts2::Application.routes.draw do
     match 'signout', to: 'sessions#destroy',     via: 'delete'
     match 'signin',  to: 'sessions#new',         via: 'get'
     resources :examinations
+    resources :questions
+    resources :subjects
   end
 end
   # The priority is based upon order of creation: first created -> highest priority.

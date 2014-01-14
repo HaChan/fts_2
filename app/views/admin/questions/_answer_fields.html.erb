@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="span3">
+        <%= f.label :answer_content, "Answer Content" %>
+        <%= f.text_field :answer_content %>
+  </div>
+  <%
+  case
+  when 1 == @question.type_question_id %>
+    <div class="span2">
+      <%= f.label "Correct Answer" %>
+      <%= f.check_box :status %>
+    </div>
+  <%
+  when 2 == @question.type_question_id %>
+    <div class="span2">
+      <%= f.label "Correct Answer" %>
+      <%= f.check_box :status, class: "answer_correct" %>
+    </div>
+  <% end %>
+</div>
