@@ -1,0 +1,29 @@
+<div class="field">
+	<%= f.label "Subject" %>
+  <%= f.collection_select(:subject_id, @subjects, :id, :subject_name) %>
+</div>
+<div class="field">
+	<%= f.label "Type examination" %>
+	<div class="row">
+		<div class="span1">
+		  <%= f.radio_button :exam_type, "0", checked: @examination.exam_public? %>
+		  Private
+		</div>
+		<div class="span1">
+		  <%= f.radio_button :exam_type, "1", checked: @examination.exam_public? %>
+		  Public
+		</div>
+  </div>
+</div>
+<div class="field">
+	<%= f.label :number_question %>
+  <%= f.number_field :number_question %>
+</div>
+<div class="field">
+	<%= f.label :duration %>
+  <%= f.number_field :duration %> minus
+</div>
+<div class="field">
+	<%= f.label :datetime_exam %>
+  <%= f.date_field :datetime_exam %>
+</div>
