@@ -23,11 +23,16 @@ class Admin::ExaminationsController < ApplicationController
 	def edit
 		@examination = Examination.find params[:id]
 		@subjects = Subject.all
-		#@examination_questions = @examination.examination_questions
 	end
 
 	def update
-		
+		@examination = Examination.find params[:id] 
+    if @examination.update_attributes! examination_params
+      flash[:success] = "Examination updated"
+      redirect_to edit_admin_examination_path @examination
+    else
+      render 'edit'
+    end
 	end
 
 	def destroy

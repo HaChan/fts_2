@@ -4,7 +4,7 @@ class Examination < ActiveRecord::Base
 	has_many :users
 	validates :exam_type, presence: true
 
-	def exam_public?
-		1 === self.exam_type
+	def public?
+		1 == self.exam_type
 	end
 end
