@@ -1,0 +1,24 @@
+<% provide(:title, "Show all testings") %>
+<h2>Show all testings</h2>
+
+<table class="table">
+	<thear>
+		<tr>
+			<th>Examination No</th>
+			<th>Subject</th>
+			<th>User test</th>
+			<th>Result</th>
+			<th>Duration</th>
+			<th>Number question</th>
+			<th>Datetime exam</th>
+			<th>Type</th>
+			<th>Evaluation</th>
+		</tr>
+  </thear>
+	<tbody>
+		<%= render @testings if @testings.any? %>
+	</tbody>
+	<tfoot>
+    <%= will_paginate %>
+	</tfoot>
+</table>

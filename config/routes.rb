@@ -12,6 +12,7 @@ Fts2::Application.routes.draw do
 
     resources :questions
     resources :subjects
+    resources :testings, only: [:index, :update]
     resources :examinations do
       resources :users do
         resources :assigned_users, only: [:create, :destroy]
