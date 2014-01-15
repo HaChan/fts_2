@@ -1,1 +1,14 @@
 <%= link_to "Add new question", new_admin_question_path, class: "btn btn-small btn-primary" %>
+
+<table class="table" cellpadding="2" cellspacing="0" width="100%">
+  <tr>
+		<td class="listbox-header" align="center">Subject</td>
+		<td class="listbox-header" align="center">Question</td>
+		<td class="listbox-header" align="center">Type of question</td>
+		<td class="listbox-header" align="center"></td>
+	</tr>
+	<% if @questions.present? %>
+    <%= render partial: "question", collection: @questions %>
+    <%= will_paginate %>
+	<% end %>
+</table>

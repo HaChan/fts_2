@@ -1,7 +1,7 @@
 class Admin::QuestionsController < ApplicationController
   respond_to :html, :js
   def index
-
+    @questions = Question.paginate page: params[:page], per_page: 2
   end
 
   def new
@@ -43,6 +43,12 @@ class Admin::QuestionsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @question = Question.find params[:id]
+    @question.destroy
+    redirect_to admin_questions_url
   end
 
   private
