@@ -1,0 +1,2 @@
+$("#user_<%=@testing.user.id%>").remove();
+$("#table_assigned > tbody").append("<%= escape_javascript(render('admin/examinations/assigned_user', assigned_user: @testing)) %>");

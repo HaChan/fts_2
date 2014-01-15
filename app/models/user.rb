@@ -8,6 +8,12 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }, unless: :not_validates_password
   has_secure_password
 
+  scope :no_assigned, lambda { |examination_id| 
+    where ("NOT EXISTS (SELECT * FROM testings
+                        where user_id = users.id
+                        and examination_id = #{examination_id})") }
+
+
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end

@@ -9,9 +9,16 @@ Fts2::Application.routes.draw do
     resources :sessions, only: [:new, :create, :destroy]
     match 'signout', to: 'sessions#destroy',     via: 'delete'
     match 'signin',  to: 'sessions#new',         via: 'get'
-    resources :examinations
+
     resources :questions
     resources :subjects
+
+    resources :examinations do
+      resources :users do
+        resources :assigned_users, only: [:create, :destroy]
+      end
+    end
+
   end
   
 end

@@ -1,9 +1,9 @@
 <% provide(:title, 'Edit examination') %>
 <h1>Edit examination</h1>
-<%= form_for [:admin, @examination] do |f| %>
+
 <div class="row">
   <div class="span6 offset3">
-    
+    <%= form_for [:admin, @examination] do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       
 			<%= render 'fields', f: f%>
@@ -12,6 +12,28 @@
       <%= link_to "Delete", admin_examination_path(@examination), 
       method: :delete, data: { confirm: "You sure?" },
                       class: "btn btn-large btn-primary"%>
-  </div>
-<% end %>
+    <% end %>
+ </div>
+  <% unless @examination.public? %>
+	<div class="span6">
+		<h2>List users not assigned to examination</h2>
+		<table class="table table-hover" id="table_not_assigned">
+      <tr>
+        <th>Email user</th>
+        <th>Action</th>
+      </tr>
+      <%= render partial: 'user', collection: @users%>
+		</table>
+	</div>
+	<div class="span6">
+		<h2>List users assigned to examination</h2>
+		<table class="table table-hover" id="table_assigned">
+      <tr>
+        <th>Email user</th>
+        <th>Action</th>
+      </tr>
+      <%= render partial: 'assigned_user', collection: @assigned_users %>
+		</table>
+	</div>
+	<% end%>
 </div>

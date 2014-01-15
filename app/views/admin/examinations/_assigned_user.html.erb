@@ -1,0 +1,8 @@
+<tr id="assigned_<%=assigned_user.id%>">
+	<td><%=assigned_user.user.email%></td>
+	<td>
+		<%= link_to "Remove", admin_examination_user_assigned_user_path(@examination, 
+			assigned_user.user, assigned_user), 
+      data: { confirm: "You sure?" }, method: :delete, remote: true, class: "btn btn-small btn-default"%>
+	</td>
+</tr>
