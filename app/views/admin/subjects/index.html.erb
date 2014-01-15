@@ -1,0 +1,7 @@
+<%= link_to "Add new subject", new_admin_subject_path, class: "btn btn-small btn-primary" %>
+<table class="table" cellpadding="2" cellspacing="0" width="100%">
+  <tr>
+		<td class="listbox-header" align="center">Subject</td>
+	</tr>
+	<%= render @subjects if @subjects.any? %>
+</table>
