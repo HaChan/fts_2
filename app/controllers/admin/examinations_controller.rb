@@ -1,7 +1,7 @@
 class Admin::ExaminationsController < ApplicationController
 
 	def index
-		
+		@examinations = Examination.paginate page: params[:page], per_page: 3
 	end
 
 	def new

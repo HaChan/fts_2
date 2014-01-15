@@ -1,0 +1,24 @@
+<% provide(:title, "Show all examinations") %>
+<h2>Show all examinations</h2>
+<%= link_to "Create new examination", new_admin_examination_path,
+	                              class: "btn btn-small btn-primary" %>
+<table class="table">
+	<thear>
+		<tr>
+			<th>Examination</th>
+			<th>Subject</th>
+			<th>Duration</th>
+			<th>Number question</th>
+			<th>Datetime exam</th>
+			<th>Type</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr>
+  </thear>
+	<tbody>
+		<%= render @examinations if @examinations.any? %>
+	</tbody>
+	<tfoot>
+    <%= will_paginate %>
+	</tfoot>
+</table>

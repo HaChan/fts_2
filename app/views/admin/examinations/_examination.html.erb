@@ -1,0 +1,13 @@
+<tr>
+	<td><%= examination.id %></td>
+	<td><%= examination.subject.subject_name%></td>
+	<td><%= examination.duration%></td>
+	<td><%= examination.number_question%></td>
+	<td><%= examination.datetime_exam%></td>
+	<td><%= examination.public? ? "Public" : "Private"%></td>
+	<td><%= link_to "Edit", edit_admin_examination_path(examination),
+	                              class: "btn btn-small btn-primary" %></td>
+	<td><%= link_to "Delete", admin_examination_path(examination), 
+	method: :delete, data: { confirm: "You sure?" },
+                                  class: "btn btn-small btn-primary"%>
+</tr>
