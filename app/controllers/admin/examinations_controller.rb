@@ -23,6 +23,10 @@ class Admin::ExaminationsController < ApplicationController
 	def edit
 		@examination = Examination.find params[:id]
 		@subjects = Subject.all
+		unless @examination.public?
+			@users = User.no_assigned @examination.id
+			@assigned_users = @examination.testings
+		end
 	end
 
 	def update

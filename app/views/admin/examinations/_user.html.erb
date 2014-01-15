@@ -1,0 +1,10 @@
+<tr id="user_<%=user.id%>">
+	<td><%=user.email%></td>
+	<td>
+		<%= form_for([:admin, @examination, user], 
+		url: admin_examination_user_assigned_users_path(@examination, user),
+		method: :post, remote: true) do |f|%>
+		<%= f.submit "Add", class: "btn btn-small btn-primary"%>
+		<% end%>
+	</td>
+</tr>
