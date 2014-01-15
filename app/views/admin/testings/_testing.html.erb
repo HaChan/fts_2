@@ -1,0 +1,16 @@
+<tr>
+	<td><%= testing.examination.id %></td>
+	<td><%= testing.examination.subject.subject_name%></td>
+	<td><%= testing.user.name%></td>
+	<td>
+		<% unless testing.result.nil? %>
+		<%= testing.result%>/<%= testing.examination.number_question%>
+		<% end%>
+	</td>
+	<td><%= testing.examination.duration%></td>
+	<td><%= testing.examination.number_question%></td>
+	<td><%= testing.examination.datetime_exam%></td>
+	<td><%= testing.examination.public? ? "Public" : "Private"%></td>
+	<td><%= link_to "Evaluation", "#",
+	                              class: "btn btn-small btn-primary" %></td>
+</tr>

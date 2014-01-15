@@ -30,8 +30,8 @@ selects the total number of orders from the Sales table?", type_question_id: 1)
 
 Question.create(subject_id: 1, subject_content: "How to push git")
 
-ExaminationQuestion.create(examination_id: 1, question_id: 1)
-ExaminationQuestion.create(examination_id: 2, question_id: 2)
+TestingQuestion.create(testing_id: 1, question_id: 1)
+TestingQuestion.create(testing_id: 2, question_id: 2)
 
 TypeQuestion.create(question_type: "Multi")
 TypeQuestion.create(question_type: "Single")
@@ -42,8 +42,8 @@ Answer.create(question_id: 2, answer_content: "abcd", status: 0)
 
 
 
-Testing.create(examination_id: 1, user_id: 1, result: 1)
-Testing.create(examination_id: 2, user_id: 2, result: 0)
+Testing.create(examination_id: 1, user_id: 1, result: 10)
+Testing.create(examination_id: 2, user_id: 2, result: 11)
 
-TestingAnswer.create(answer_id: 1, testing_id: 1)
-TestingAnswer.create(answer_id: 1, testing_id: 2)
+TestingAnswer.create(answer_id: 1, testing_id: 1, question_id: 1, status: 1)
+TestingAnswer.create(answer_id: 1, testing_id: 2, question_id: 1, status: 0)
