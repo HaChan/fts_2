@@ -1,33 +1,17 @@
-<%= form_for [:admin, @question] do |f| %>
-  <%= f.hidden_field :type_question_id, value: @question.type_question_id %>
-  <div class="question">
-    <%= f.label "Category" %>
-    <%= f.collection_select(:subject_id, @subjects, :id, :subject_name) %>
-  </div>
-  <div class="question">
-    <%= f.label "Question" %>
-    <%= f.text_field :subject_content, rows: 3 %>
-  </div>
-  <div class="answer">
-    <%= f.fields_for :answers do |builder| %>
-      <%= render 'answer_fields', f: builder %>
-    <% end %>
-  </div>
-  <p><%= f.submit "Create question" %></p>
-<% end %>
-
-<script type="text/javascript">
-$(function(){
-  $(".answer_correct").each(function(){
-    $(this).click(function(){
-      check_answer($(this));
-    });
-  });
-});
-function check_answer(target){
-  $(".answer_correct").each(function(){
-    $(this).prop('checked', false);
-  });
-  $(target).prop('checked', true);
-}
-</script>
+<tr>
+		<td class="listbox-entry">
+			<%= question.subject.subject_name %>
+		</td>
+		<td class="listbox-entry" align="center">
+		  <%= question.subject_content %>
+		</td>
+		<td class="listbox-entry" align="center">
+		  <%= question.type_question.question_type %>
+		</td>
+		<td class="listbox-header" align="center">
+		  <%= link_to "Edit question", edit_admin_question_path(question.id),
+		   class: "btn btn-small btn-primary" %>
+		  <%= link_to "Delete question", admin_question_path(question.id),
+		   method: :delete, class: "btn btn-small btn-primary" %>
+		</td>
+</tr>
