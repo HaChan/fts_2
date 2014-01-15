@@ -15,3 +15,19 @@
   </div>
   <p><%= f.submit "Edit question" %></p>
 <% end %>
+
+<script type="text/javascript">
+$(function(){
+  $(".answer_correct").each(function(){
+    $(this).click(function(){
+      check_answer($(this));
+    });
+  });
+});
+function check_answer(target){
+  $(".answer_correct").each(function(){
+    $(this).prop('checked', false);
+  });
+  $(target).prop('checked', true);
+}
+</script>

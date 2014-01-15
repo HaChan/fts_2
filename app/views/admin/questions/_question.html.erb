@@ -3,7 +3,7 @@
 			<%= question.subject.subject_name %>
 		</td>
 		<td class="listbox-entry" align="center">
-		  <%= question.subject_content %>
+		  <%= link_to question.subject_content, admin_question_path(question) %>
 		</td>
 		<td class="listbox-entry" align="center">
 		  <%= question.type_question.question_type %>
