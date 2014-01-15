@@ -1,0 +1,15 @@
+<% provide(:title, 'Create a new subject') %>
+<h1>Create a new subject</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for [:admin, @subject] do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+      <div class="subject">
+        <%= f.label "Subject name" %>
+        <%= f.text_field :subject_name, rows: 3 %>
+      </div>
+      <p><%= f.submit "Create subject" %></p>
+    <% end %>
+  </div>
+</div>

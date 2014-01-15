@@ -1,0 +1,9 @@
+<tr>
+  <td class="listbox-entry">
+  	<%= link_to subject.subject_name, edit_admin_subject_path(subject)  %>
+  </td>
+  <td class="listbox-entry">
+  	<%= link_to "Delete question", admin_subject_path(subject),
+		   method: :delete, class: "btn btn-small btn-primary" %>
+  </td>
+</tr>
