@@ -1,0 +1,7 @@
+<li>
+	<% if choice_answers.find_by(answer_id: answer.id).nil? %>
+		<%=answer.answer_content%>
+	<% else %>
+		<strong><%=answer.answer_content%></strong>
+	<% end%>
+</li>

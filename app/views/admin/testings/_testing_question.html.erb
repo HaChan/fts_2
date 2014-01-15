@@ -1,0 +1,13 @@
+<li>
+	<%=testing_question.question.subject_content%>
+	<% if testing_question.question.type_question_text?%>
+		<%=testing_question.testing_answer.first.answer_text%>
+	<% else %>
+		<ol style="list-style:lower-alpha">
+			<%=render partial: 'answer', 
+			collection: testing_question.question.answers, 
+			locals: {choice_answers: testing_question.testing_answers}%>
+		</ol>
+	<% end%>
+	<%= check_box_tag testing_question.correct %>Correct
+</li>
