@@ -12,15 +12,14 @@ Fts2::Application.routes.draw do
 
     resources :questions
     resources :subjects
-
     resources :examinations do
       resources :users do
         resources :assigned_users, only: [:create, :destroy]
       end
     end
-
+    resources :answers, only: [:destroy]
   end
-  
+
 end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

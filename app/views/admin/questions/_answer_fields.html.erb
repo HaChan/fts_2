@@ -1,20 +1,27 @@
-<div class="row">
-  <div class="span3">
-        <%= f.label :answer_content, "Answer Content" %>
-        <%= f.text_field :answer_content %>
-  </div>
+<div id="answer_id_<%=f.object.id%>" class="row">
   <%
   case
   when 1 == @question.type_question_id %>
+    <div class="span3">
+      <%= f.label :answer_content, "Answer Content" %>
+      <%= f.text_field :answer_content %>
+    </div>
     <div class="span2">
       <%= f.label "Correct Answer" %>
       <%= f.check_box :status %>
     </div>
   <%
   when 2 == @question.type_question_id %>
+    <div class="span3">
+      <%= f.label :answer_content, "Answer Content" %>
+      <%= f.text_field :answer_content %>
+    </div>
     <div class="span2">
       <%= f.label "Correct Answer" %>
       <%= f.check_box :status, class: "answer_correct" %>
     </div>
+  <% end %>
+  <% if f.object.id.present? %>
+    <%= link_to "Delete Answer", admin_answer_path(f.object.id), method: :delete, remote: true, class: "btn btn-small btn-primary" %>
   <% end %>
 </div>

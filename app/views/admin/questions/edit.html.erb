@@ -3,6 +3,19 @@
 
 <div class="row">
   <div class="span6 offset3">
+    <%= form_tag edit_admin_question_path(@question), method: "get", remote: true do %>
+      <%= label_tag "Add number of answers" %>
+      <%= number_field_tag 'answer_num', 1,  in: 1..4 %>
+
+      <%= label_tag "Type of question" %>
+
+      <% @type_questions.each do |type| %>
+        <%= radio_button_tag :type_question, type.id, type.checked?(@question.type_question_id) %>
+        <%= type.question_type %>
+      <% end %>
+
+      <%= submit_tag "Change", class: "btn btn-small btn-primary" %>
+    <% end %>
     <div id="question_form">
       <%=render "edit_question"%>
     </div>

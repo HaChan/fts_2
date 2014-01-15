@@ -4,6 +4,10 @@ class Admin::QuestionsController < ApplicationController
     @questions = Question.paginate page: params[:page], per_page: 2
   end
 
+  def show
+    @question = Question.find params[:id]
+  end
+
   def new
     @subjects = Subject.all
     type_question = params[:type_question]
@@ -33,6 +37,11 @@ class Admin::QuestionsController < ApplicationController
     @subjects = Subject.all
     @question = Question.find params[:id]
     @type_questions = TypeQuestion.all
+    type_question = params[:type_question]
+    @question.type_question_id = type_question if type_question.present?
+    answer_num = params[:answer_num].to_i
+    answer_num.times { @question.answers.build }
+    respond_with @question
   end
 
   def update
