@@ -17,4 +17,13 @@ module ApplicationHelper
     end
   end
 
+  def import(file, model_name)
+    CSV.foreach(file.path, headers: true) do |row|
+      model_hash = row.to_hash
+      model_hash[:id] = nil
+	    new_model = model_name.new model_hash
+	    new_model.save! validate: false
+    end
+  end
+
 end

@@ -22,6 +22,7 @@ Fts2::Application.routes.draw do
     end
     resources :monitors, only: [:create, :index]
     match 'monitors/:export', to: 'monitors#show', as: 'export_request', via: 'get'
+    match 'monitors/import', to: 'monitors#create', as: 'import_request', via: 'post'
     resources :answers, only: [:destroy]
   end
 end
