@@ -12,7 +12,6 @@ Fts2::Application.routes.draw do
     resources :sessions, only: [:new, :create, :destroy]
     match 'signout', to: 'sessions#destroy',     via: 'delete'
     match 'signin',  to: 'sessions#new',         via: 'get'
-
     resources :questions
     resources :subjects
     resources :testings, only: [:index]
@@ -21,9 +20,10 @@ Fts2::Application.routes.draw do
         resources :assigned_users, only: [:create, :destroy]
       end
     end
+    resources :monitors, only: [:create, :index]
+    match 'monitors/:export', to: 'monitors#show', as: 'export_request', via: 'get'
     resources :answers, only: [:destroy]
   end
-
 end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
