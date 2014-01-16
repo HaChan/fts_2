@@ -1,0 +1,11 @@
+<% provide(:title, "Evaluation testing") %>
+<h2>Evaluation testing</h2>
+<%= form_for [:admin, @testing.user, @testing] do |f| %>
+<ol>
+	<%= f.fields_for :testing_questions do |builder| %>
+		<%=render 'testing_question_form', f: builder%>
+	<% end%>
+</ol>
+<%= f.submit "Evaluation" , class: "btn btn-small btn-primary"%>
+<% end%>
+

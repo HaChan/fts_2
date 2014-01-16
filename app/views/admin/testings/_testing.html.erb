@@ -11,8 +11,7 @@
 	<td><%= testing.examination.number_question%></td>
 	<td><%= testing.examination.datetime_exam%></td>
 	<td><%= testing.examination.public? ? "Public" : "Private"%></td>
-	<td><%= link_to "Auto", "#",
+	<td><%= link_to "Show", admin_user_testing_path(testing.user,testing),
 	                              class: "btn btn-small btn-primary" %></td>
-	<td><%= link_to "Evaluation", admin_user_testing_path(testing.user,testing),
-	                              class: "btn btn-small btn-primary" %></td>
+	<td><%= link_to "Evaluation", edit_admin_user_testing_path(testing.user,testing), class: "btn btn-small btn-primary" %></td>
 </tr>
