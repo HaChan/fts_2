@@ -1,0 +1,13 @@
+<li>
+	<%=f.object.question.subject_content%>
+	<% if f.object.question.type_question_text?%>
+		<%=f.object.testing_answer.first.answer_text%>
+	<% else %>
+		<ol style="list-style:lower-alpha">
+			<%=render partial: 'answer', 
+			collection: f.object.question.answers, 
+			locals: {choice_answers: f.object.testing_answers}%>
+		</ol>
+	<% end%>
+	<%= f.check_box :correct %>Correct
+</li>

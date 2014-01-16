@@ -10,4 +10,12 @@ class Question < ActiveRecord::Base
   def type_question_text?
   	3 == self.type_question_id
   end
+
+  def type_question_single?
+  	2 == self.type_question_id
+  end
+
+  def type_question_multi?
+  	1 == self.type_question_id
+  end
 end

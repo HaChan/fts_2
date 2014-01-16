@@ -28,9 +28,9 @@ Subject.create(subject_name: "Git")
 Question.create(subject_id: 1, subject_content: "Which of the following SQL statements
 selects the total number of orders from the Sales table?", type_question_id: 1)
 
-Question.create(subject_id: 1, subject_content: "How to push git")
+Question.create(subject_id: 1, subject_content: "How to push git", type_question_id: 2)
 
-TestingQuestion.create(testing_id: 1, question_id: 1, correct: 1)
+TestingQuestion.create(testing_id: 1, question_id: 1, correct: 0)
 TestingQuestion.create(testing_id: 2, question_id: 2, correct: 0)
 
 TypeQuestion.create(question_type: "Multi")
@@ -38,12 +38,15 @@ TypeQuestion.create(question_type: "Single")
 TypeQuestion.create(question_type: "Text")
 
 Answer.create(question_id: 1, answer_content: "abc", status: 1)
+Answer.create(question_id: 1, answer_content: "abcd", status: 0)
+Answer.create(question_id: 1, answer_content: "effabcd", status: 1)
 Answer.create(question_id: 2, answer_content: "abcd", status: 0)
 
 
 
-Testing.create(examination_id: 1, user_id: 1, result: 10)
-Testing.create(examination_id: 2, user_id: 2, result: 11)
+Testing.create(examination_id: 1, user_id: 1)
+Testing.create(examination_id: 2, user_id: 2)
 
 TestingAnswer.create(answer_id: 1, testing_question_id: 1)
-TestingAnswer.create(answer_id: 1, testing_question_id: 2)
+TestingAnswer.create(answer_id: 2, testing_question_id: 1)
+TestingAnswer.create(answer_id: 4, testing_question_id: 2)

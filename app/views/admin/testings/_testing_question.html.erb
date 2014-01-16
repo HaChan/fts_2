@@ -9,5 +9,6 @@
 			locals: {choice_answers: testing_question.testing_answers}%>
 		</ol>
 	<% end%>
-	<%= check_box_tag testing_question.correct %>Correct
+	<%= check_box_tag "", testing_question.id , 
+	testing_question.correct? %>Correct
 </li>

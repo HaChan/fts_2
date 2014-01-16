@@ -7,7 +7,7 @@ Fts2::Application.routes.draw do
 
   namespace :admin do
     resources :users do
-      resources :testings, only: [:update, :show]
+      resources :testings, only: [:update, :show, :edit]
     end
     resources :sessions, only: [:new, :create, :destroy]
     match 'signout', to: 'sessions#destroy',     via: 'delete'

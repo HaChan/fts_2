@@ -1,9 +1,9 @@
 <li>
 	<% if choice_answers.find_by(answer_id: answer.id).nil? %>
-		<%=answer.answer_content%>-----<%=answer.correct? ? 
+		<%=answer.answer_content%><%=answer.correct? ? 
 		                        "Dap an dung" : "Dap an sai"%>
 	<% else %>
-		<strong><%=answer.answer_content%></strong>-----<%=answer.correct? ? 
+		<strong><%=answer.answer_content%></strong><%=answer.correct? ? 
 		                        "Dap an dung" : "Dap an sai"%>
 	<% end%>
 </li>
